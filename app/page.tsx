@@ -14,20 +14,20 @@ export default function Main() {
           <Image alt="photo" src={MePhoto} priority width={260} height={300} />
         </div>
         <div className="flex flex-col items-center justify-center space-y-4 md:ml-4 md:items-start">
-          <h1 className="mt-1 font-doodle text-3xl md:text-4xl">
+          <h1 className="text-md mt-1 font-doodle text-3xlmd:text-left md:text-4xl px-4">
             It&apos;s me,
             <span className="relative mx-1.5">masnurrm</span>
             &#128569; 🫵
           </h1>
-          <p className="text-md max-w-[500px] text-center md:text-left md:text-lg">
+          <p className="text-md max-w-[500px] text-center md:text-left md:text-lg px-4">
             Pretending as a Software Engineer{' '}
             <span role="img" aria-label="amiin">
               🤲
             </span>{' '}
             focusing on Cloud, DevSecOps, and Backend evelopment.{' '}
-            <i>Psst, talking about business too!</i>
+            <i>Psst, talking about business too (lagi BU)!</i>
           </p>
-          <p className="text-md max-w-[500px] text-center md:text-left md:text-lg">
+          <p className="text-md max-w-[500px] text-center md:text-left md:text-lg px-4">
             {'Peek my '}
             <Link
               className="relative z-20 font-semibold underline"
