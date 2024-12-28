@@ -2,10 +2,15 @@ import withPlaiceholder from '@plaiceholder/next';
 
 /** @type {import('next').NextConfig} */
 const config = {
-  output: 'export',
-  images: {
-    unoptimized: true,
-  },
+  ...(process.env.DEPLOYMENT_ENV === 'cloudflare'
+    ? {
+        output: 'export',
+        images: {
+          unoptimized: true,
+        },
+      }
+    : {}),
+
   images: {
     remotePatterns: [
       {
