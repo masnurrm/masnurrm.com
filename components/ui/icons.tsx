@@ -122,6 +122,20 @@ function IconCopied({ className, ...props }: React.ComponentProps<'svg'>) {
   );
 }
 
+function IconDownload({ className, ...props }: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 256 256"
+      fill="currentColor"
+      className={cn('size-4', className)}
+      {...props}
+    >
+      <path d="M224,152v56a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V152a8,8,0,0,1,16,0v56H208V152a8,8,0,0,1,16,0ZM133.66,170.34a8,8,0,0,0,11.31,0l40-40a8,8,0,0,0-11.31-11.31L136,156.69V40a8,8,0,0,0-16,0V156.69L82.34,119a8,8,0,0,0-11.31,11.31Z" />
+    </svg>
+  );
+}
+
 export {
   IconArrow,
   IconBars,
@@ -129,6 +143,7 @@ export {
   IconCode,
   IconCopied,
   IconCopy,
+  IconDownload,
   IconTrash,
   IconX,
 };
