@@ -1,19 +1,19 @@
-import Footer from "@/components/layout/footer";
-import Navbar from "@/components/layout/navbar";
-import Providers from "@/components/providers";
-import { cn } from "@/lib/utils";
-import { bimbo, della, doodle, nunito } from "@/styles/font";
-import "@/styles/global.css";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import type { Metadata } from "next";
-import { SocialProfileJsonLd } from "next-seo";
+import Footer from '@/components/layout/footer';
+import Navbar from '@/components/layout/navbar';
+import Providers from '@/components/providers';
+import { cn } from '@/lib/utils';
+import { bimbo, della, doodle, nunito } from '@/styles/font';
+import '@/styles/global.css';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import type { Metadata } from 'next';
+import { SocialProfileJsonLd } from 'next-seo';
 
 export const metadata: Metadata = {
-  metadataBase: new URL("httpss://www.masnurrm.com"),
+  metadataBase: new URL('httpss://www.masnurrm.com'),
   title: {
-    template: "%s | masnurrm",
-    default: "Hi! I'm Nur Muhammad"
+    template: '%s | masnurrm',
+    default: "Hi! I'm Nur Muhammad",
   },
   description:
     "I'm a software engineer focusing on Cloud, DevSecOps, and Backend Development.\n Psst, talking about business too!",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
     },
-  }
+  },
 };
 
 export default function Root({ children }: { children: React.ReactNode }) {
@@ -35,7 +35,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
           nunito.className,
           della.variable,
           doodle.variable,
-          bimbo.variable
+          bimbo.variable,
         )}
       >
         <SocialProfileJsonLd
@@ -44,8 +44,8 @@ export default function Root({ children }: { children: React.ReactNode }) {
           name="Nur Muhammad"
           url={process.env.BASE_URL!}
           sameAs={[
-            "https://linkedin.com/in/nurmuhammad22/",
-            "https://instagram.com/masnurrm",
+            'https://linkedin.com/in/nurmuhammad22/',
+            'https://instagram.com/masnurrm',
           ]}
         />
         <SpeedInsights />
@@ -57,4 +57,5 @@ export default function Root({ children }: { children: React.ReactNode }) {
         <Analytics />
       </body>
     </html>
-  )}
+  );
+}

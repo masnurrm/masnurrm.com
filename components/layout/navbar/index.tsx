@@ -1,24 +1,24 @@
-"use client";
+'use client';
 
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import MobileMenu from "./mobile-menu";
-import ThemeToggler from "./theme-toggler";
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import MobileMenu from './mobile-menu';
+import ThemeToggler from './theme-toggler';
 
 const links = [
   {
-    text: "Blog",
-    url: "/blog",
+    text: 'Blog',
+    url: '/blog',
   },
   {
-    text: "Projects",
-    url: "/projects",
+    text: 'Projects',
+    url: '/projects',
   },
   {
-    text: "About",
-    url: "/about",
+    text: 'About',
+    url: '/about',
   },
 ];
 
@@ -33,7 +33,7 @@ export default function Navbar() {
             href="/"
             className={cn(
               buttonVariants(),
-              "font-doodle text-xl font-semibold"
+              'font-doodle text-xl font-semibold',
             )}
           >
             masnurrm
@@ -45,8 +45,8 @@ export default function Navbar() {
                   key={i}
                   className={cn(
                     buttonVariants(),
-                    pathname.startsWith(link.url) ? "bg-secondary" : "",
-                    "px-3 py-2.5 font-bold"
+                    pathname.startsWith(link.url) ? 'bg-secondary' : '',
+                    'px-3 py-2.5 font-bold',
                   )}
                   href={link.url}
                 >
