@@ -8,6 +8,8 @@ const colorList = [
   'rgba(255, 187, 0, 0.6)',
   'rgba(0, 255, 187, 0.6)',
   'rgba(187, 0, 255, 0.6)',
+  'rgba(0, 187, 255, 0.6)',
+  'rgba(255, 0, 187, 0.6)',
 ];
 
 export default function Canvas() {
@@ -22,7 +24,6 @@ export default function Canvas() {
 
   const handleSave = useCallback(async () => {
     try {
-      // Sembunyikan palette sementara
       if (paletteRef.current) {
         paletteRef.current.style.display = 'none';
       }
@@ -32,17 +33,15 @@ export default function Canvas() {
       const sectionElement = document.querySelector('section');
       if (!sectionElement) return;
 
-      // Deteksi mode gelap
       const isDarkMode = document.documentElement.classList.contains('dark');
 
       const canvas = await html2canvas(sectionElement, {
-        backgroundColor: isDarkMode ? '#000000' : '#ffffff', // Sesuaikan dengan mode
+        backgroundColor: isDarkMode ? '#000000' : '#ffffff',
         scale: 2,
         useCORS: true,
         logging: false,
       });
 
-      // Tampilkan palette kembali
       if (paletteRef.current) {
         paletteRef.current.style.display = 'block';
       }
@@ -56,7 +55,6 @@ export default function Canvas() {
       document.body.removeChild(link);
     } catch (error) {
       console.error('Failed to save page:', error);
-      // Pastikan palette tetap muncul kembali jika terjadi error
       if (paletteRef.current) {
         paletteRef.current.style.display = 'block';
       }
