@@ -4,6 +4,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import MobileMenu from "./mobile-menu";
+import ThemeToggler from "./theme-toggler";
 
 const links = [
   {
@@ -53,6 +55,8 @@ export default function Navbar() {
               ))}
             </div>
             <div className="ml-4 flex items-center space-x-3 pr-2.5">
+              <ThemeToggler />
+              <MobileMenu />
             </div>
           </div>
         </div>
