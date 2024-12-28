@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Main() {
+export default function Main() {
   return (
     <section className="relative flex h-full cursor-pencil items-center justify-center pb-6 dark:cursor-pencil-dark md:w-screen md:pb-0 md:pr-2.5">
       <div className="flex flex-col items-center justify-center md:flex-row md:justify-between">
@@ -52,6 +53,9 @@ export default function Main() {
             .
           </p>
         </div>
+      </div>
+      <Canvas />
+    </section>
       </div>
       <Canvas />
     </section>
