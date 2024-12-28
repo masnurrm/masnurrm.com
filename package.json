@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:cloudflare": "DEPLOYMENT_ENV=cloudflare next build",
     "export": "next export",
     "start": "next start",
     "lint": "next lint"
