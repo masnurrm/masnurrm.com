@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
-import { ThemeProvider } from "next-themes";
+import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
+import { ThemeProvider } from 'next-themes';
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
