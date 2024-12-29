@@ -65,24 +65,29 @@ interface BlogPost {
 }
 
 export async function getAllPost() {
-  const articles = fs.readdirSync(articlesPath);
+  try {
+    const articles = fs.readdirSync(articlesPath);
 
-  return articles.reduce<BlogPost[]>((allArticles, articleSlug) => {
-    const source = fs.readFileSync(
-      path.join(articlesPath, articleSlug),
-      'utf-8',
-    );
-    const { data, content } = matter(source);
+    return articles.reduce<BlogPost[]>((allArticles, articleSlug) => {
+      const source = fs.readFileSync(
+        path.join(articlesPath, articleSlug),
+        'utf-8',
+      );
+      const { data, content } = matter(source);
 
-    return [
-      {
-        ...data,
-        slug: articleSlug.replace('.mdx', ''),
-        readingTime: readingTime(content),
-      } as BlogPost,
-      ...allArticles,
-    ];
-  }, []);
+      return [
+        {
+          ...data,
+          slug: articleSlug.replace('.mdx', ''),
+          readingTime: readingTime(content),
+        } as BlogPost,
+        ...allArticles,
+      ];
+    }, []);
+  } catch (error) {
+    console.warn('Error reading blog posts:', error);
+    return [];
+  }
 }
 
 const MdxComponent = {
