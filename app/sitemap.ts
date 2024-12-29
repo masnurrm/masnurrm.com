@@ -1,6 +1,9 @@
 import { getAllPost } from '@/lib/hooks/use-postlib';
 import type { MetadataRoute } from 'next';
 
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.BASE_URL;
   const curDate = new Date().toISOString();
