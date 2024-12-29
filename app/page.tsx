@@ -27,7 +27,7 @@ export default function Main() {
             &#128569; 🫵
           </h1>
           <p className="text-md max-w-[500px] text-center md:text-left md:text-lg px-4">
-            Pretending as a Software Engineer{' '}
+            I just pretending as a Software Engineer{' '}
             <span role="img" aria-label="amiin">
               🤲
             </span>{' '}
