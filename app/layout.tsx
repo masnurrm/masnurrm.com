@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('httpss://www.masnurrm.com'),
   title: {
     template: '%s | masnurrm',
-    default: "Hi! I'm Nur Muhammad",
+    default: "It's me, masnurrm!",
   },
   description:
     "I'm a software engineer focusing on Cloud, DevSecOps, and Backend Development.\n Psst, talking about business too!",
