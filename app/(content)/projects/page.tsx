@@ -20,7 +20,7 @@ export default async function Projects() {
     <section className="md:mx-12">
       <div className="space-y-2 md:space-y-4">
         <h1 className="text-4xl md:text-6xl">Projects</h1>
-        <p>Some collection of my past works.</p>
+        <p>Some collection of my past works. Stay tune, let me sleep first.</p>
       </div>
       {filteredProject.length ? (
         <div className="mt-4 space-y-6">
