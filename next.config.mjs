@@ -5,8 +5,11 @@ const config = {
   ...(process.env.DEPLOYMENT_ENV === 'cloudflare'
     ? {
         output: 'export',
-        async redirects() {
-          return [];
+        generateStaticParams: async () => {
+          return {
+            '/robots.txt': { dynamic: 'force-static' },
+            '/manifest.webmanifest': { dynamic: 'force-static' },
+          };
         },
         images: {
           unoptimized: true,
