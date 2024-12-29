@@ -1,5 +1,5 @@
 import Canvas from '@/components/canvas';
-import MePhoto from '@/public/default/me-photo.svg';
+import MePhoto from '@/public/default/me-photo.png';
 import { Doodle1, Doodle2 } from '@/components/doodle';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -18,7 +18,7 @@ export default function Main() {
         </div>
         <div className="flex flex-col items-center justify-center space-y-4 md:ml-4 md:items-start">
           <h1 className="text-md mt-1 font-doodle text-3xlmd:text-left md:text-4xl px-4">
-            It&apos;s me,
+            it&apos;s me,
             <span className="relative mx-1.5">
               masnurrm
               <Doodle2 className="absolute -bottom-4 -right-4 hidden w-32 stroke-[#ffd55a]/50 dark:block md:w-48 md:stroke-[#ffd55a]/70" />
