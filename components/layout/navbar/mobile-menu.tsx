@@ -22,6 +22,12 @@ const links = [
     text: 'About',
     url: '/about',
   },
+  {
+    text: 'Curriculum Vitae 🔗',
+    url: 'https://drive.google.com/file/d/1WUegCPQlh3esqIrfmkF8H8Q3rpll_pv8/view?usp=sharing',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
 ];
 
 export default function MobileMenu() {
@@ -40,7 +46,9 @@ export default function MobileMenu() {
             className={pathname.startsWith(link.url) ? 'bg-border' : ''}
             asChild
           >
-            <Link href={link.url}>{link.text}</Link>
+            <Link href={link.url} target={link.target} rel={link.rel}>
+              {link.text}
+            </Link>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
