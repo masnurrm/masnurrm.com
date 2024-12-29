@@ -10,7 +10,7 @@ import type { Metadata } from 'next';
 import { SocialProfileJsonLd } from 'next-seo';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('httpss://www.masnurrm.com'),
+  metadataBase: new URL('https://www.masnurrm.com'),
   title: {
     template: '%s | masnurrm',
     default: "It's me, masnurrm!",
