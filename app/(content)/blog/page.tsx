@@ -17,44 +17,46 @@ export default async function Blog() {
   );
 
   return (
-    <section className="md:mx-12">
-      <div className="space-y-2 md:space-y-4">
-        <h1 className="text-4xl md:text-6xl">Blog</h1>
-        <p>Some tech stuff and my life updates.</p>
+    <section className="px-4 md:px-12 lg:container lg:px-24 xl:px-32">
+      <div className="space-y-4">
+        <h1 className="text-4xl font-bold">Blog</h1>
+        <p className="text-muted-foreground">
+          I will write here (mirroring my medium). But let me sleep first.
+        </p>
       </div>
       {filteredBlogPosts.length ? (
-        <div className="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
           {filteredBlogPosts.map(async (frontMatter, i) => {
             const base64 = await getImage(frontMatter.image);
             return (
               <Link
                 key={i}
-                className="rounded"
+                className="block overflow-hidden rounded-lg border border-border transition-colors hover:bg-muted/50"
                 href={`/blog/${frontMatter.slug}`}
               >
-                <div className="content">
+                <div className="relative">
                   <Image
                     src={frontMatter.image}
                     alt={frontMatter.title}
-                    className="rounded-t-lg"
-                    width="540"
-                    height="270"
+                    className="aspect-[16/9] w-full object-cover"
+                    width={540}
+                    height={270}
                     placeholder="blur"
                     blurDataURL={base64}
                   />
-                  <div className="space-y-1 p-2">
-                    <h4 className="line-clamp-1 leading-snug">
-                      {frontMatter.title}
-                    </h4>
-                    <div className="text-xs text-muted-foreground md:text-sm">
-                      {dayjs(frontMatter.date).format('MMMM DD, YYYY')}
-                      {` • ${frontMatter.readingTime.text}`}
-                      {` • ${frontMatter.readingTime.words} word(s)`}
-                    </div>
-                    <p className="line-clamp-2 text-sm md:line-clamp-1 md:text-base">
-                      {frontMatter.description}
-                    </p>
+                </div>
+                <div className="space-y-2 p-4">
+                  <h4 className="line-clamp-2 text-xl font-medium">
+                    {frontMatter.title}
+                  </h4>
+                  <div className="text-sm text-muted-foreground">
+                    {dayjs(frontMatter.date).format('MMMM DD, YYYY')}
+                    {` • ${frontMatter.readingTime.text}`}
+                    {` • ${frontMatter.readingTime.words} word(s)`}
                   </div>
+                  <p className="line-clamp-2 text-muted-foreground">
+                    {frontMatter.description}
+                  </p>
                 </div>
               </Link>
             );
