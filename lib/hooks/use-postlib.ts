@@ -28,11 +28,14 @@ export async function getPostBySlug(slug: string) {
     source: content,
     options: {
       mdxOptions: {
+        // @ts-expect-ignore
         remarkPlugins: [codeTitle, remarkMath],
         rehypePlugins: [
+          // @ts-expect-ignore
           rehypePrism,
           rehypeSlug,
           [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+          // @ts-expect-ignore
           [rehypeKatex, { output: 'html' }],
         ],
       },
@@ -55,39 +58,26 @@ export async function getPostBySlug(slug: string) {
   };
 }
 
-interface BlogPost {
-  title: string;
-  description: string;
-  date: string;
-  image?: string;
-  slug: string;
-  readingTime: ReturnType<typeof readingTime>;
-}
-
 export async function getAllPost() {
-  try {
-    const articles = fs.readdirSync(articlesPath);
+  const articles = fs.readdirSync(articlesPath);
 
-    return articles.reduce<BlogPost[]>((allArticles, articleSlug) => {
-      const source = fs.readFileSync(
-        path.join(articlesPath, articleSlug),
-        'utf-8',
-      );
-      const { data, content } = matter(source);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return articles.reduce((allArticles: any[], articleSlug: string) => {
+    const source = fs.readFileSync(
+      path.join(articlesPath, articleSlug),
+      'utf-8',
+    );
+    const { data, content } = matter(source);
 
-      return [
-        {
-          ...data,
-          slug: articleSlug.replace('.mdx', ''),
-          readingTime: readingTime(content),
-        } as BlogPost,
-        ...allArticles,
-      ];
-    }, []);
-  } catch (error) {
-    console.warn('Error reading blog posts:', error);
-    return [];
-  }
+    return [
+      {
+        ...data,
+        slug: articleSlug.replace('.mdx', ''),
+        readingTime: readingTime(content),
+      },
+      ...allArticles,
+    ];
+  }, []);
 }
 
 const MdxComponent = {
