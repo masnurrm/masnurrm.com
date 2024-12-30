@@ -15,16 +15,6 @@ type ProjectType = {
   font?: string;
 };
 
-const project: ProjectType[] = [
-  // {
-  //   title: 'MyIstiqlal',
-  //   image: '/projects/myistiqlal.webp',
-  //   description:
-  //     'API project for Istiqlal Mosque built with Nest.js, Xendit, and SendGrid.',
-  //   createdAt: '2024-06-03',
-  //   technology: [],
-  //   url: 'https://api.myistiqlal.com/',
-  // },
-];
+const project: ProjectType[] = [];
 
 export default project;
