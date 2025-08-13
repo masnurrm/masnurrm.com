@@ -104,7 +104,7 @@ export default async function Projects() {
           </div>
         ) : (
           <div className="mt-4">
-            <p>No project.</p>
+            <p>On Going Update.</p>
           </div>
         )}
       </div>
