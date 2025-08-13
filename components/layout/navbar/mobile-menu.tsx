@@ -24,7 +24,7 @@ const links = [
   },
   {
     text: 'Curriculum Vitae 🔗',
-    url: 'https://drive.google.com/file/d/1WUegCPQlh3esqIrfmkF8H8Q3rpll_pv8/view?usp=sharing',
+    url: 'https://drive.google.com/file/d/1AwE_1A-9MVZfI3Xp4jQaYMPIAR6liWS3/view?usp=sharing',
     target: '_blank',
     rel: 'noopener noreferrer',
   },
