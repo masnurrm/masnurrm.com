@@ -49,7 +49,7 @@ export default function Canvas() {
       const image = canvas.toDataURL('image/png');
       const link = document.createElement('a');
       link.href = image;
-      link.download = 'my-page-with-doodle.png';
+      link.download = 'doodle-bareng-masnurrm.png';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
