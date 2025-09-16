@@ -1,9 +1,6 @@
 // app/api/powerbi/route.ts
 import { NextResponse } from 'next/server';
 
-export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
-
 /**
  * Acquire an Azure AD token for the Power BI API using client‑credentials.
  */
