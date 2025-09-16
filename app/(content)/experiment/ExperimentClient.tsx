@@ -1,23 +1,20 @@
 // app/(content)/experiment/ExperimentClient.tsx
 'use client';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
-
-declare global {
-  interface Window {
-    'powerbi-client': PowerBIClient;
-  }
-}
 
 export default function ExperimentClient() {
   const reportContainerRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
 
   const handleScriptLoaded = () => {
-    const lib = window['powerbi-client'];
-    if (lib && !window.powerbi) {
-      window.powerbi = lib as any; // one cast here is typically allowed or can be suppressed
+    const lib = (window as any)['powerbi-client'];
+    // If the wrapper isn’t present, assign one
+    if (lib && !(window as any).powerbi) {
+      (window as any).powerbi = lib;
     }
     setLoaded(true);
   };
@@ -30,8 +27,10 @@ export default function ExperimentClient() {
       const { embedUrl, embedToken, reportId } = await res.json();
 
       // Get the raw SDK
-      const pbiClient = window['powerbi-client'];
+      const pbiClient = (window as any)['powerbi-client'];
+      // Pick up the enums
       const models = pbiClient.models;
+      // Create a Service instance (this is what Microsoft’s wrapper normally does for you)
       const service = new pbiClient.service.Service(
         pbiClient.factories.hpmFactory,
         pbiClient.factories.wpmpFactory,
