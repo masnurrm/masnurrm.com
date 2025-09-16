@@ -22,6 +22,7 @@ const links = [
     text: 'About',
     url: '/about',
   },
+  { text: 'Experiment', url: '/experiment' },
   {
     text: 'Curriculum Vitae 🔗',
     url: 'https://drive.google.com/file/d/1AwE_1A-9MVZfI3Xp4jQaYMPIAR6liWS3/view?usp=sharing',
