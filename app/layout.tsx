@@ -8,6 +8,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { SocialProfileJsonLd } from 'next-seo';
+import Head from 'next/head';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.masnurrm.com'),
@@ -30,6 +31,14 @@ export const metadata: Metadata = {
 export default function Root({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head>
+        <link
+          rel="preload"
+          href="https://cdnjs.cloudflare.com/ajax/libs/powerbi-client/2.23.1/powerbi.js"
+          as="script"
+          crossOrigin="anonymous"
+        />
+      </Head>
       <body
         className={cn(
           nunito.className,
